@@ -1,0 +1,33 @@
+Internal, _changeable_ data is called "state".
+
+State is defined by the `useState` function
+> which returns the data, 
+> and a function to change that data (in an array).
+
+NEVER set the state variable directly
+> always use that function (because of the next point 👇)
+
+```jsx
+// import useState from React
+import React, { useState } from 'react'
+
+function Greeting(props) {
+  // call useState and pass a default value
+  const [count, setCount] = useState(1)
+  // useState returns the current value and and update function
+
+  const incrementCount = () => {
+    setCount(count + 1)
+  }
+
+  return (
+      <div>
+        <h1>Hello, {props.name}</h1>
+        <p>You've clicked  {count} times</p> {/* Display state in {} */}
+        <button onClick={setCount(count + 1)}>
+          Click me
+        </button>
+      </div>
+  )
+}
+```

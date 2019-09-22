@@ -1,0 +1,38 @@
+When state or props change, your component updates AUTOMATICALLY 🎉
+
+✨ This is the magic of React! ✨
+
+You almost _never_ have to go into the DOM yourself 
+
+(If you think that you do - you're probably trying to do it the "hard way")
+
+
+```jsx
+import React, { useState } from 'react'
+
+function Greeting(props) {
+  
+  
+  const [count, setCount] = useState(0)
+
+  const incrementCount = () => {
+    setCount(count + 1);
+    // Call the update fucntion with a new value to set the state.
+    // NEVER set the value directly
+  }
+
+  return (
+      <div>
+      
+        <h1>Hello, {props.name}</h1>
+        {/* Count'll update authomaticaly */}
+        <p>You've clicked  {count} times</p> 
+        {/* Use {} to set attribute to JS value */}
+        {/* Set onClick to a custom function */}
+        <button onClick={incrementCount}>
+          Click me
+        </button>
+      </div>
+  )
+}
+```

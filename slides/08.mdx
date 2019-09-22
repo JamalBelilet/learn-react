@@ -1,0 +1,27 @@
+Make lists of things by looping over an array of data with `map`
+
+Return an element from each loop iteration
+
+Provide a unique `key` to each element in the list to ensure best performance
+
+```jsx
+const DATA = [
+  { id: 4, title: 'A New Hope' },
+  { id: 5, title: 'The Empire Strikes Back' },
+  { id: 6, title: 'Return of the Jedi' },
+]
+
+function App() {
+  return <MyList items={DATA} />
+}
+
+function MyList(props) {
+  return (
+    <div>
+    { // Wrap entire JS in {} 
+      props.items.map(  (item) => <p key={item.id}>{item.title}</p> )
+    }
+    </div>
+  )
+}
+```

@@ -1,0 +1,36 @@
+# Perform Async functions and side effects inside of `useEffect` 
+(takes a callback)
+
+The second argument is an array of dependencies.  
+
+Include any variable the useEffect uses that might change, 
+or an empty array if there are none.
+
+```JSX
+// import useEffect from React
+import React, {useState, useEffect} from 'react'
+
+function TrainignsPage(props) {
+    const [trainings, setTrainigs] = useState([])
+
+    // Call useEffect with a function as the first argument
+    useEffect(() => {
+        // Do async actions like data fetching inside the callback
+        fetch("https://api.formini.dz/trainings")
+            .then(response => response.json())
+            .then($trainigns => setTrainings($trainigns))
+    }, [props.id])
+    // the second argument is an array of dependencies.
+    // ⚠️ don't forget this!
+
+    return (
+        <div>
+        {
+            trainings.map(
+                training => <p key={training.id}>{training.title}</p>
+            )
+        }
+        </div>
+    )
+}
+```

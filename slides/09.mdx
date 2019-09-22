@@ -1,0 +1,32 @@
+# 2 built-in ways to style components:
+
+1. Set the class with `className`, and use regular CSS files
+```jsx  
+import 'styles.css'
+
+function NormalCSS() {
+    return (
+        // Use className instead of class
+        <p className="big-text">
+            BIG!
+        </p>
+    )
+}
+```
+
+2. Set inline styles with `style={{ }}` and camel cased keys 
+👉 notice the double curly braces
+```jsx  
+function InlineStyle() {
+    return (
+        // Double {} because you're defining a JS object inside JSX
+        <p style={  {
+            fontSize: 20, // Camel case attributes
+            zIndex: 2, 
+            color: "blue", // values like blue must be in ""
+        }  }>
+            Blue text
+        </p>
+    )
+}
+```
